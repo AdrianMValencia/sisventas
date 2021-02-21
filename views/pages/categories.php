@@ -43,8 +43,8 @@
                                 <td><?php echo $value["categoria"]; ?></td>
                                 <td>
                                     <div class="btn-group">
-                                        <button class="btn btn-warning"><i class="fas fa-edit"></i></button>
-                                        <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                        <button class="btn btn-warning btnEditCategory" idCategory="<?php echo $value["id"]; ?>" data-toggle="modal" data-target="#modalEditCategory"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-danger btnDeleteCategory" idCategory="<?php echo $value["id"]; ?>"><i class="fas fa-trash-alt"></i></button>
                                     </div>
                                 </td>
                             </tr>
