@@ -55,3 +55,40 @@
         </div>
     </section>
 </div>
+<!--========================================
+    MODAL PARA AGREGAR CATEGORIA
+=========================================-->
+<div class="modal fade" id="modalAddCategory" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form role="form" method="POST">
+                <!-- CABECERAR DEL MODAL -->
+                <div class="modal-header bg-primary">
+                    <h4 class="modal-title">Agregar Categoría</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- CUERPO DEL MODAL -->
+                <div class="modal-body">
+                    <!-- CAMPO PARA EL NOMBRE DE LA CATEGORIA -->
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-th"></i></span>
+                        </div>
+                        <input type="text" class="form-control" name="newCategory" id="newCategory" placeholder="Ingresar categoría" style="color: black;">
+                    </div>
+                </div>
+                <!-- PIE DEL MODAL -->
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Salir</button>
+                    <button type="submit" class="btn btn-success">Guardar categoría</button>
+                </div>
+                <?php
+                $createCategory = new ControllerCategories();
+                $createCategory->ctrCreateCategory();
+                ?>
+            </form>
+        </div>
+    </div>
+</div>

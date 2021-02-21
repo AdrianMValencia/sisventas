@@ -22,4 +22,19 @@ class ModelCategories
         $stmt->close();
         $stmt = null;
     }
+    /*==========================================
+        METODO PARA CREAR CATEGORIAS
+    ==========================================*/
+    public static function mdlCreateCategory($table, $data)
+    {
+        $stmt = Connection::connect()->prepare("INSERT INTO $table(categoria) VALUES (:categoria)");
+        $stmt->bindParam(":categoria", $data, PDO::PARAM_STR);
+        if ($stmt->execute()) {
+            return "ok";
+        } else {
+            return "error";
+        }
+        $stmt->close();
+        $stmt = null;
+    }
 }
