@@ -53,4 +53,49 @@ class ControllerCategories
             }
         }
     }
+    /*==========================================
+        METODO PARA EDITAR CATEGORIAS
+    ==========================================*/
+    public static function ctrEditCategory()
+    {
+        if (isset($_POST["editCategory"])) {
+            if (preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editCategory"])) {
+                $table = "categorias";
+                $data = array(
+                    "categoria" => $_POST["editCategory"],
+                    "id" => $_POST["idCategory"]
+                );
+                $response = ModelCategories::mdlEditCategory($table, $data);
+                if ($response == "ok") {
+                    echo '<script>
+                        Swal.fire({
+                            icon: "success",
+                            title: "¡La categoría ha sido actualizada correctamente!",
+                            showConfirmButton: true,
+                            confirmButtonText: "Aceptar",
+                            closeOnConfirm: true
+                        }).then((result)=>{
+                            if(result.value){
+                            window.location = "categories";
+                            }
+                        });
+                    </script>';
+                }
+            } else {
+                echo '<script>
+                        Swal.fire({
+                            icon: "error",
+                            title: "¡La categoría no puede ir vacía o llevar caracteres especiales!",
+                            showConfirmButton: true,
+                            confirmButtonText: "Cerrar",
+                            closeOnConfirm: true
+                        }).then((result)=>{
+                            if(result.value){
+                            window.location = "categories";
+                            }
+                        });
+                    </script>';
+            }
+        }
+    }
 }

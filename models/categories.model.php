@@ -37,4 +37,20 @@ class ModelCategories
         $stmt->close();
         $stmt = null;
     }
+    /*==========================================
+        METODO PARA EDITAR CATEGORIAS
+    ==========================================*/
+    public static function mdlEditCategory($table, $data)
+    {
+        $stmt = Connection::connect()->prepare("UPDATE $table SET categoria = :categoria WHERE id = :id");
+        $stmt->bindParam(":categoria", $data["categoria"], PDO::PARAM_STR);
+        $stmt->bindParam(":id", $data["id"], PDO::PARAM_INT);
+        if ($stmt->execute()) {
+            return "ok";
+        } else {
+            return "error";
+        }
+        $stmt->close();
+        $stmt = null;
+    }
 }

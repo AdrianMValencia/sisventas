@@ -97,6 +97,7 @@
         ?>
     </div>
     <script src="public/js/template.js"></script>
+    <script src="public/js/category.js"></script>
 </body>
 
 </html>
